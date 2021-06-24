@@ -11,7 +11,7 @@
         }
 
         table{
-            margin-top:5.2rem;
+            margin-top:5rem;
             border: 2px solid;
             background:#eee;
         }
