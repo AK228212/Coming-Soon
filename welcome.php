@@ -12,14 +12,14 @@
 
     if(!isset($password)){
         echo "$uname doesn't exist!";
-        header("location:http://localhost/coming soon/login.php");
+        header("location:http://localhost/coming soon/login.html");
     }elseif($pwd == $password ){
         session_start();
         $_SESSION['uname'] = $uname;
         header("location:http://localhost/coming soon/dashboard.php");
     }else{
         echo "Wrong Password!";
-        header("location:http://localhost/coming soon/login.php");
+        header("location:http://localhost/coming soon/login.html");
     }
 
 ?>

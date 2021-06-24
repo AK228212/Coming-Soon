@@ -29,7 +29,7 @@
         $mySql = mysqli_query($conn, $query);
 
         if(isset($mySql)){
-            header("location:http://localhost/coming soon/index.php");
+            header("location:http://localhost/coming soon/index.html");
         }
         else{
             echo "Data not saved";

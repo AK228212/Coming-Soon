@@ -5,7 +5,7 @@
     $run = mysqli_query($conn, $query);
     session_start();
     if($_SESSION['uname'] != "admin"){
-        header("location:http://localhost/coming soon/login.php/");
+        header("location:http://localhost/coming soon/login.html/");
     }
 ?>
 
