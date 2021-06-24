@@ -65,7 +65,7 @@
             <td><?php echo $row['middleName']?></td>
             <td><?php echo $row['lastName']?></td>
             <td>
-            <a href="mailto:<?php echo $row['email']?>?subject=organisational mail&body=your message was: <?php echo $row['commentorquestion']?>">
+            <a href="mailto:<?php echo $row['email']?>?subject=organisational mail&body=your message was: <?php echo $row['commentorquestion']?>%0D%0A Your Name : <?php echo $row['firstName']?>">
                 <?php echo $row['email']?></a>
             </td>
             <td><?php echo $row['phone']?></td>
