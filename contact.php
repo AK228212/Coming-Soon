@@ -2,34 +2,33 @@
 
     include('db.php');
     //variables
-    $firstName  = $_POST['fname'];
-    $middleName  = $_POST['mname'];
-    $lastName  = $_POST['lname'];
+    $name = $_POST['name'];
     $email = $_POST['email'];
-    $phone  = $_POST['phone'];
     $jobTitle  = $_POST['jtitle'];
-    $companyName  = $_POST['cname'];
-    $organizationName  = $_POST['oname'];
+    $companyName  = $_POST['companyName'];
     $countryName  = $_POST['country'];
-    $stateName  = $_POST['sname'];
-    $commentorquestion = $_POST['commentorquestion'];
+    $message = $_POST['message'];
+    $subject = "Thanks for contacting us";
+    $header ="From: username228212@gmail.com";
 
 
 
     //check fields
-    if(empty($firstName)||empty($lastName)||empty($email) ||empty($phone)||empty($jobTitle) ||empty($countryName)||empty($stateName) ||empty($companyName) ||empty($commentorquestion))
+    if(empty($name)|| empty($email)|| empty($jobTitle)|| empty($countryName)|| empty($companyName)|| empty($message))
     {
         echo "Please fill it correctly!";
     }
     else
     {
-        $query = "insert into demo(firstName,middleName,lastName,email,phone,jobTitle,companyName,organizationName,countryName,StateName,commentorquestion) 
-                    value('$firstName','$middleName','$lastName','$email','$phone','$jobTitle','$companyName','$organizationName','$countryName','$stateName','$commentorquestion')";
+        $query = "insert into demo(name, email, jobTitle, companyName, country, message) 
+                    value('$name', '$email', '$jobTitle', '$companyName','$countryName', '$message')";
 
         $mySql = mysqli_query($conn, $query);
 
         if(isset($mySql)){
-            header("location:http://localhost/coming soon/index.html");
+            
+            mail($email, $subject, $message,  $header);
+            header("location:../coming soon/index.html");
         }
         else{
             echo "Data not saved";
