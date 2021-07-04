@@ -17,6 +17,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MominRaza/Amboo@d6f2d211443f56b492f435d46c689ae2fd12a505/css/amboo.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet"/>
     <style>
         h1{
             text-align:center;
@@ -38,22 +40,19 @@
         }
     </style>
 </head>
-<body>
+
+<body class="center">
     <h1>Contacting details</h1>
-    <table>
+    <table class="center">
         <tr>
             <th>S. No.</th>
-            <th>First Name</th>
-            <th>Middle Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th >Email</th>
-            <th >Phone</th>
             <th >Job Title</th>
             <th >Company Name</th>
-            <th>Organization Name</th>
             <th>Country Name</th>
-            <th>State Name</th>
-            <th>Comment/Question</th>
+            <th>Message</th>
+            <th>Send</th>
         </tr>
 
         <?php
@@ -61,22 +60,25 @@
          while($row = mysqli_fetch_assoc($run)): ?>
         <tr>
             <td><?php echo $i ?></td>
-            <td><?php echo $row['firstName']?></td>
-            <td><?php echo $row['middleName']?></td>
-            <td><?php echo $row['lastName']?></td>
+            <td><?php echo $row['name']?></td>
             <td>
-            <a href="mailto:<?php echo $row['email']?>?subject=organisational mail&body=your message was: <?php echo $row['commentorquestion']?>%0D%0A Your Name : <?php echo $row['firstName']?>">
-                <?php echo $row['email']?></a>
+                <?php echo $row['email']?>
             </td>
-            <td><?php echo $row['phone']?></td>
             <td><?php echo $row['jobTitle']?></td>
             <td><?php echo $row['companyName']?></td>
-            <td><?php echo $row['organizationName']?></td>
-            <td><?php echo $row['countryName']?></td>
-            <td><?php echo $row['StateName']?></td>
-            <td><?php echo $row['commentorquestion']?></td>
+            <td><?php echo $row['country']?></td>
+            <td><?php echo $row['message']?></td>
+            <td>
+                <form action="sendMessage.php" method="POST">
+                    <input type="hidden" name="userName" value="<?= $row['name']?>">
+                    <input type="hidden" name="userEmail" value="<?= $row['email']?>">
+                    <input type="hidden" name="userMessage" value="<?= $row['message']?>">
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Message for user!"></textarea>
+                    <button type="submit" class="btn primary icon-r">Send<i class="material-icons">send</i></button>
+                </form>
+            </td>
         </tr>
-
+            
         <?php
          $i++;
          endwhile ;?>

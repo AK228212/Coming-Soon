@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <!-- Amboo CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MominRaza/Amboo@master/css/amboo.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MominRaza/Amboo@d6f2d211443f56b492f435d46c689ae2fd12a505/css/amboo.min.css"/>
     <link rel="stylesheet" href="./css/main.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" 
-    integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
      <!--Start Navbar-->
@@ -23,7 +23,7 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#about-us">About Us</a></li>
                 <li><a href="#contact-us">Contact Us</a></li>
-                <li><a href="#" class="btn btn-t sm white" onclick="toggleModal('modal')">Log In</a></li>
+                <li><a href="#"  onclick="toggleModal('modal')">Log In</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -34,29 +34,26 @@
     </header>
     <!--End navbar-->
     <!-- Modal Start -->
-    <div class="modal card" id="modal">
+    <div class="modal card rd-4 center" id="modal">
         <h2 class="h4">Login</h2>
         <button
-          class="btn btn-t danger sm modal-close"
+          class="btn btn-t white sm modal-close"
           onclick="toggleModal('modal')">
-          <div class="material-icons">close</div>
+          <div class="material-icons-outlined">close</div>
         </button>
-        <form action="#">
+        <form action="welcome.php" class="left" method="POST">
           <div class="card-body">
             <label>
               Username
-              <input type="text" name="username" id="username" />
+              <input type="text" name="uname" id="username" />
             </label>
             <label>
               Password
-              <input type="password" name="password" id="password" />
+              <input type="password" name="pwd" id="password" />
             </label>
           </div>
           <div class="card-footer right">
-            <button type="submit" class="btn primary">Done</button>
-            <a href="#" class="btn btn-o primary" onclick="toggleModal('modal')">
-              Close
-            </a>
+            <input type="submit" class="btn white" value="LogIn" />
           </div>
         </form>
       </div>
@@ -65,8 +62,8 @@
     <div class="home-content" id="home-content">
         <!-- <img src="https://source.unsplash.com/1600x900/?fintech" alt="">-->
          <button  id="button">ASK-US
-            <span class="material-icons">
-                arrow_right_alt
+            <span class="material-icons md-36">
+              arrow_forward
                 </span>
      </div>
      <!--End of first section-->
@@ -90,7 +87,7 @@
      <div class="card-form" id="contact-us">
         <h2 class="h4">Are You Ready?</h2>
         <h2 class="h4">We are coming Soon</h2>
-        <form action="contact.php" method="POST">
+        <form action="contact.php" method="POST" class="rd-4">
           <div class="card-body">
             <label>
               Name
@@ -395,14 +392,15 @@
                 <div class="footer-col">
                     <h4>follow us</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
         </div>
+  
    </footer>
     <script src="./js/nav-bar.js"></script>
     <!-- Amboo JS -->

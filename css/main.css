@@ -5,6 +5,9 @@
   box-sizing: border-box;
   z-index: 0;
 }
+body {
+  scroll-behavior: smooth;
+}
 :root {
   --navy-blue: #004080;
   --dark-navy-blue: #003263;
@@ -72,7 +75,7 @@
 
 @media (max-width: 760px) {
   body {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
   }
   .nav-links {
     position: absolute;
@@ -105,6 +108,7 @@
   from {
     opacity: 0;
     transform: translateX(50px);
+    width: 0%;
   }
   to {
     opacity: 1;
@@ -158,13 +162,13 @@
 
 .home-content button span {
   opacity: 0;
-  font-size: 1.4rem;
   transition: 1s;
 }
 
-.home-content button:hover span,
-.home-content button:hover {
+.home-content button:hover span {
   opacity: 1;
+}
+.home-content button:hover {
   font-size: 2rem;
 }
 /*Home content End*/
@@ -249,12 +253,14 @@
   justify-content: center;
   align-items: center;
 }
+textarea {
+  min-width: 260px;
+}
 
 .card-form form {
   background: rgba(255, 255, 255, 0.644);
   padding: 100px;
   backdrop-filter: blur(10px);
-  border-radius: 4px;
 }
 /*End Form Section*/
 
@@ -340,4 +346,10 @@ ul {
   .footer-col {
     width: 100%;
   }
+}
+
+.modal {
+  padding: 20px;
+  background: var(--navBarColor);
+  color: var(--whitecolor);
 }
