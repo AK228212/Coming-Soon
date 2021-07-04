@@ -26,9 +26,22 @@
         $mySql = mysqli_query($conn, $query);
 
         if(isset($mySql)){
+            include('mailAuth.php');
+           try {
+            $mail->addAddress($email, $name);
+            $mail->Subject ='Welcome to LandEX';
+            $mail->Body ='<h1>Hello, <b>'.$name.'</b>!</h1> 
+            <p>Our representative will contact you soon.</p> 
             
-            mail($email, $subject, $message,  $header);
-            header("location:../coming soon/index.html");
+            <p><b>Your Message was:</b></p><p><q>'.$message.'</q></p>
+            
+            <p>Thanks For contacting us.</p>';
+            $mail->send();
+            header("location:./index.html");
+           } catch (Exception $e) {
+               echo "Error Occur!";
+           } 
+           
         }
         else{
             echo "Data not saved";

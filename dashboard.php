@@ -42,47 +42,49 @@
 </head>
 
 <body class="center">
-    <h1>Contacting details</h1>
-    <table class="center">
-        <tr>
-            <th>S. No.</th>
-            <th>Name</th>
-            <th >Email</th>
-            <th >Job Title</th>
-            <th >Company Name</th>
-            <th>Country Name</th>
-            <th>Message</th>
-            <th>Send</th>
-        </tr>
+    <h1>Contacting details</h1>.
+    <center>
+        <table class="center">
+            <tr>
+                <th>S. No.</th>
+                <th>Name</th>
+                <th >Email</th>
+                <th >Job Title</th>
+                <th >Company Name</th>
+                <th>Country Name</th>
+                <th>Message</th>
+                <th>Send</th>
+            </tr>
 
-        <?php
-         $i =1;
-         while($row = mysqli_fetch_assoc($run)): ?>
-        <tr>
-            <td><?php echo $i ?></td>
-            <td><?php echo $row['name']?></td>
-            <td>
-                <?php echo $row['email']?>
-            </td>
-            <td><?php echo $row['jobTitle']?></td>
-            <td><?php echo $row['companyName']?></td>
-            <td><?php echo $row['country']?></td>
-            <td><?php echo $row['message']?></td>
-            <td>
-                <form action="sendMessage.php" method="POST">
-                    <input type="hidden" name="userName" value="<?= $row['name']?>">
-                    <input type="hidden" name="userEmail" value="<?= $row['email']?>">
-                    <input type="hidden" name="userMessage" value="<?= $row['message']?>">
-                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Message for user!"></textarea>
-                    <button type="submit" class="btn primary icon-r">Send<i class="material-icons">send</i></button>
-                </form>
-            </td>
-        </tr>
-            
-        <?php
-         $i++;
-         endwhile ;?>
-    </table>
+            <?php
+            $i =1;
+            while($row = mysqli_fetch_assoc($run)): ?>
+            <tr>
+                <td><?php echo $i ?></td>
+                <td><?php echo $row['name']?></td>
+                <td>
+                    <?php echo $row['email']?>
+                </td>
+                <td><?php echo $row['jobTitle']?></td>
+                <td><?php echo $row['companyName']?></td>
+                <td><?php echo $row['country']?></td>
+                <td><?php echo $row['message']?></td>
+                <td>
+                    <form action="sendMessage.php" method="POST">
+                        <input type="hidden" name="userName" value="<?= $row['name']?>">
+                        <input type="hidden" name="userEmail" value="<?= $row['email']?>">
+                        <input type="hidden" name="userMessage" value="<?= $row['message']?>">
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Message for user!"></textarea>
+                        <button type="submit" class="btn primary icon-r">Send<i class="material-icons">send</i></button>
+                    </form>
+                </td>
+            </tr>
+                
+            <?php
+            $i++;
+            endwhile ;?>
+        </table>
+    </center>
     <form action="logoutAdmin.php">
     <button class="logoutButton" id="logoutButton" type="submit" >Logout</button>
     </form>
